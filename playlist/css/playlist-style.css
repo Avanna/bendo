@@ -1,0 +1,16 @@
+/* Playlist Overview Page */
+.column-thumbnail { width: 125px; padding:5px !important; }
+/* Custom CSS For Post Type */
+#track_list { background:url(../images/playlist_bg.png) no-repeat right center;}
+#track_list label { display:block; width:130px !important; float:left; padding-top:15px; padding-right:10px; text-align:right; }
+#track_list div {  clear:both !important; margin-bottom:10px; }
+#track_list input { height:40px !important; width:440px !important;}
+
+/* Input Icons */
+#music_mp3 { background:url(../images/note_icon.png) no-repeat right center #fff; }
+#music_ogg { background:url(../images/note_icon.png) no-repeat right center #fff; }
+#music_artist { background:url(../images/artist_icon.png) no-repeat right center #fff; }
+#music_rating { background:url(../images/rating_icon.png) no-repeat right center #fff; }
+#music_buy { background:url(../images/url_icon.png) no-repeat right center #fff; }
+#music_price { background:url(../images/money_icon.png) no-repeat right center #fff; }
+#music_duration { background:url(../images/clock_icon.png) no-repeat right center #fff; }

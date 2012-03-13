@@ -1,0 +1,86 @@
+/* Layout Styling */
+.glowbr { background:#FFFFFF; border:1px solid #ddd; padding:5px; margin:0 auto;  }
+
+/* Icons */
+#od-panel-sidebar li.general { background:url(../images/general_icon.png) no-repeat center right; }
+#od-panel-sidebar li.general:hover { background-color: #eaeaea; }
+#od-panel-sidebar li.appearance { background:url(../images/appearance_icon.png) no-repeat center right; }
+#od-panel-sidebar li.appearance:hover { background-color: #eaeaea; }
+#od-panel-sidebar li.misc { background:url(../images/misc_icon.png) no-repeat center right; }
+#od-panel-sidebar li.misc:hover { background-color: #eaeaea }
+#od_logo { background:url(../images/od_logo.png) no-repeat; display:block; width:353px; height:71px; text-indent:-9999px; float:left;  }
+#od_header{ height:70px; background:url(../images/head_bg.jpg) repeat scroll; border-bottom: 1px solid #fff; padding:15px 0 15px 20px; }
+#od_bar { display:block; background:url(../images/border_strip.jpg) repeat-x; height:8px; width:100%; }
+#od_subheader { background:url(../images/head_bg.jpg) repeat scroll; border-bottom: 1px solid #fff; height: 35px; padding: 0 10px; }
+#od_subheader { background:url(../images/head_bg.jpg) repeat scroll;	border-bottom: 1px solid #fff; height: 35px;	padding: 0 10px; }
+#od_subheader .sublinks { float: left; }
+#od_subheader .savelink { float: right; padding-top:5px; }
+#od_subheader .savelink img {	vertical-align:middle; }
+#od_subheader a { color: #8d8d8d;	font-size: 11px;	text-decoration:none;	line-height:35px; }
+#od_subheader .sublinks a	{ padding: 2px 20px; }
+#od_subheader .sublinks a:hover	{ color:#4ca0bf; }
+.subicon_support { background:url(../images/support_icon.png) 0 0 no-repeat; }
+.subicon_documentation	{ background:url(../images/documentation_icon.png) 0 0 no-repeat; }
+.subicon_log { background:url(../images/log_icon.jpg) 0 0 no-repeat; }
+.subicon_at { background:url(../images/at_icon.png) 0 0 no-repeat; }
+#od-panel { margin-top:30px; margin-right:20px; width: 785px; }
+#od_main {  box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; border: 1px solid #e3e3e3; border-top: 0; background: #fff url(../images/odfw_sidebar_bg.jpg) repeat-y top left; }
+#od-panel-sidebar { float:left; width:160px; overflow: visible; margin-bottom:20px;  }
+#od-panel-sidebar ul, #od-panel-sidebar li { list-style-type:none; margin:0; padding:0; }
+#od-panel-sidebar a { display:block; font-size:11px; padding:8px 10px; border-bottom:1px solid #ccc; text-decoration:none; color:#333333;  }
+#od-panel-sidebar li.active a { box-shadow: none;	-moz-box-shadow: none; background-color:#fff;	-webkit-box-shadow: none; width: 141px; }
+#od-panel-content {  padding: 20px; margin-left: 0; float: left;	width: 570px;}
+#od-panel-content, #od-panel-content p { font-size:11px; color:#666; }
+.od-panel-section { display:none; }
+.od-panel-section.od-panel-active { display:block; }
+
+/*  Button Style */
+#od-panel input[type="submit"], #od-panel input[type="button"], #od-panel button, #od-panel .button{
+	font-family: Arial, Tahoma, sans-serif;
+	font-weight: bold;
+	border: 1px solid #2356a1;
+	padding: 9px 15px;
+	color: #fff;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-shadow: 0 -1px 0 hsla(214,100%,0%,.5);
+	background: #1161a0;
+	cursor: pointer;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #3fa0ff), color-stop(1, #2356a1) );
+	background: -moz-linear-gradient( center top, #3fa0ff 20%, #2356a1 100% );
+	-webkit-box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(212,77%,26%,1), 0 5px 2px hsla(214,100%,0%,.5);
+	-moz-box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(212,77%,26%,1), 0 5px 2px hsla(214,100%,0%,.5);
+	box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(212,77%,26%,1), 0 5px 2px hsla(214,100%,0%,.5);
+}
+#od-panel input[type="submit"]:hover, #od-panel input[type="button"]:hover, #od-panel button:hover, #od-panel .button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(.2,#5cabf8), color-stop(1, #3970c0) );
+	background: -moz-linear-gradient( center top, #5cabf8 20%, #3970c0 100% ); }
+#od-panel input[type="submit"].secondary, #od-panel input[type="button"].secondary, #od-panel button.secondary, #od-panel .secondary {
+	border-color: #dddddd;
+	background: #eeeeee;
+	color: #555;text-shadow: 0 1px 0 hsla(0,0%,100%,1);
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0, #f7f7f7), color-stop(1, #eeeeee) );
+	background: -moz-linear-gradient( center top, #f7f7f7 0%, #eeeeee 100% );
+	box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(0, 0%, 86%,1), 0 5px 2px hsla(0,0%,0%,0.5);
+	-moz-box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(0, 0%, 86%,1), 0 5px 2px hsla(0,0%,0%,0.5);
+	-webkit-box-shadow: inset 0 1px 1px hsla(0,100%,100%,.4), inset 0 -1px 0 hsla(0,100%,100%,.3), 0 4px 0 hsla(0, 0%, 86%,1), 0 5px 2px hsla(0,0%,0%,0.5); }
+#od-panel input[type="submit"].secondary:hover, #od-panel input[type="button"].secondary:hover, #od-panel button.secondary:hover, #od-panel .secondary:hover { background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #f2f2f2), color-stop(1, #eee) ); background: -moz-linear-gradient( center top, #f2f2f2 20%, #eee 100% ); }
+#od-panel input[type="submit"]:active, #od-panel input[type="button"]:active, #od-panel button:active, #od-panel .button:active { box-shadow: none;	-moz-box-shadow: none; -webkit-box-shadow: none; margin-top: 5px; margin-bottom: -5px; }
+#od-panel input[type="submit"].secondary:active, #od-panel input[type="button"].secondary:active, #od-panel button.secondary:active, #od-panel .secondary:active { box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;	margin-top: 5px; margin-bottom: -5px; }
+#od-panel .button-zone-wrapper {	clear: both; height: auto; background: #f1f1f1; box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset; border: 1px solid #e3e3e3;	z-index:999; }
+#od-panel .button-zone {	padding: 10px; height:40px; z-index: 150; line-height: 1em; text-align: center; }
+#od-panel fieldset { width: 50%; max-width: 50%; float: left; position: relative; }
+
+/* Form Styles */
+#od-panel-content fieldset.title{	width: 45%; margin-right: 5%; }
+
+/* Fields Styling */
+#od-panel-content .od-panel-field { margin-bottom:15px; padding-bottom:15px; border-bottom:1px dashed #eee; }
+#od-panel-content label { font-weight:bold; color:#444; font-size:12px; margin-bottom:5px; text-shadow:1px 0 0 #fff; }
+#od-panel-content .od-panel-description { font-style:italic; margin-bottom:5px; color:#777; text-shadow:1px 0 0 #fff; }
+#od-panel-content input[type=text], #od-panel-content textarea, #od-panel-content option, #od-panel-select { border:1px solid #ddd; color:#666; font-size:11px; background:#fff; border-radius:0; -moz-border-radius:0; -webkit-border-radius:0;  }
+#od-panel-content input[type=text], #od-panel-content textarea { padding:5px; }
+#od-panel-content input[type=text] { width:270px; }
+#od-panel-content textarea {  height:100px; }
+

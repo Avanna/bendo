@@ -1,0 +1,1270 @@
+/*
+Theme Name: Bendo
+Theme URI: http://konvergeStudios.com
+Description: A theme for music artists
+Author: Ranga Mapuvire
+Author URI: http://KonvergeStudios.com/
+Version: 1.0
+.
+*/
+
+
+/* 
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  additionally, much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, figure, footer, header, 
+hgroup, nav, section { display:block; }
+
+nav ul, ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; text-decoration:none; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+/* END RESET CSS */
+
+
+/*
+fonts.css from the YUI Library: developer.yahoo.com/yui/
+          Please refer to developer.yahoo.com/yui/fonts/ for font sizing percentages
+
+There are three custom edits:
+ * remove arial, helvetica from explicit font stack
+ * make the line-height relative and unit-less
+ * remove the pre, code styles
+*/
+body {
+	line-height: 1;
+	color: black;
+	background:#1b1c1e  url(../images/main_bg11.jpg);
+	font-family:helvetica, arial, sans-serif;
+	background-attachment:fixed;
+}
+
+table { font-size:inherit; font:100%; }
+
+select, input, textarea { font:99% sans-serif; }
+
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+ 
+
+
+/* 
+ * minimal base styles 
+ */
+
+
+/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+body, select, input, textarea { color:#444; }
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */ 
+ 
+/* www.aestheticallyloyal.com/public/optimize-legibility/ */ 
+h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
+
+/* maxvoltar.com/archive/-webkit-font-smoothing */
+html { -webkit-font-smoothing: antialiased; }
+
+ 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color:#607890; }
+a:hover { color:#036; }
+
+
+ul { margin-left:0; }
+ol { margin-left:30px; list-style-type: decimal; }
+
+small { font-size:85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align:top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre { 
+  padding: 15px; 
+  
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 
+   Also: hot pink. */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; } 
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+
+/* always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+/* make buttons play nice in IE:    
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+ 
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+
+/* 
+ * Non-semantic helper classes 
+ */
+
+/* for image replacement */
+.ir { display:block; text-indent:-999em; overflow:hidden; background-repeat: no-repeat; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display:none; visibility:hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden { position:absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* >> The Magnificent CLEARFIX << */
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; } /* Hides from IE-mac \*/
+.clearfix { display: block; }
+
+
+
+
+
+ /* Primary Styles
+    Author: 
+ */
+
+
+
+#background {
+	width:100%;
+	height:1;
+}
+
+/*--------------------------- generic classes----------------------------*/
+
+.clear {
+	clear:both;
+}
+
+.transparent{
+background:rgba(255,255,255,0.5);
+}
+
+.padding_30 {
+	padding:30px;
+}
+
+.padding_20 {
+	padding:20px;
+}
+
+#main_wrapper {
+	margin:0 auto 60px auto;
+/*	background: url(../images/wood.jpg) repeat-x;*/
+}
+
+
+#wrapper {
+	width:1030px;
+	min-height:600px;
+	margin:0 auto 60px auto;
+}
+
+header {
+	padding: 0 10px 0px 10px;
+	margin: 0 0 24px 0;
+	background:/*url(../images/background_trans.png)*/;
+	border-radius: 12px;
+}
+
+header p {
+	float:left;
+	margin:26px 0 0 12px;
+	text-transform:capitalize;
+	color:#fff;
+}
+
+#logo {
+	float:left;
+	font-family:'Rockwell Extra Bold';
+	font-size:48px;
+	margin:0px 0 0 15px;
+	text-transform:capitalize;
+	color:#fff;
+}
+
+#main_nav {
+	height:50px;
+	padding:0 40px;
+	margin:0 0 18px 0;
+	border:1px #333 dashed;
+	background:/*#111 url(../images/content_bg.jpg)*/;
+}
+
+#main_nav > li {
+	font-family:'league gothic';
+	font-size:20px;
+	padding-right:50px;
+	margin-right:50px;
+	border-right:1px #333 dashed;
+	position:relative;
+	display:inline-block;
+}
+
+#main_nav > li a {
+	color:#f8f8f9;
+	line-height:56px;
+	text-decoration:none;
+	text-transform:uppercase;
+	letter-spacing:1px;
+}
+
+#main_nav .current-menu-item a {
+	color:#cc080c;
+}
+
+#content {
+	padding:30px;
+	background:#1c1d1f /*url(../images/background_trans.png)*/;
+	border:1px #333 dashed;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+		/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+		/*-moz-box-shadow:0px 0px 4px 2px #bbbec7;
+				-webkit-box-shadow:0px 0px 4px 2px #bbbec7;
+				box-shadow:0px 0px 4px 2px #bbbec7;*/
+		/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+		/*IE 7 AND 8 DO NOT SUPPORT SPREAD PROPERTY OF SHADOWS*/
+
+}
+
+#content a {
+	color:#852C01;
+}
+
+#content h2 {
+	font-family:'league gothic';
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 26px;
+	padding: 0 0 0px 0;
+	margin: 0 0 18px 0;
+	letter-spacing: ;
+	text-transform: capitalize;
+	color: #B63F05;
+}
+
+#content h2 a {
+	color:#b63f05;
+}
+
+#blog_content h2, #sidebar h2 {
+
+}
+
+#content h3 {
+	font-family:arial, sans-serif;
+	font-size:14px;
+	font-weight:bold;
+	font-style:;
+	line-height:17px;
+	margin:0 0 9px 0;
+	color:#ddd;
+	text-transform:capitalize;
+}
+
+#content h3 a {
+	color:#ddd;
+}
+
+#content p {
+	font-family:arial, sans-serif;
+	font-size:12px;
+	line-height:18px;
+	margin:0 0 18px 0;
+	color:#888;
+}
+
+#main_content {
+	margin:0 0 0 0;
+	padding:30px;
+	background:#111 url(../images/content_bg.jpg);
+	border: #333 1px dashed;
+}
+
+#content_left {
+	/*float:left;
+		width:285px;
+		min-height:;
+		padding:;
+		background:;
+		border:;*/
+}
+
+
+#content .front_post p {
+	line-height:16px;
+	margin:0px 0 9px 0;
+}
+
+#main_content small {
+	font-size:12px;
+	font-weight:bold;
+	color:#456161;
+	margin:0 0 0 0;
+}
+
+.front_post small a {
+	color:#852C01;
+}
+
+#gallery {
+	padding:20px 0 30px 30px;
+	background:#181818;
+}
+
+#gallery h2 {
+	color:#fff;
+	margin:0 0 24px 0;
+}
+
+#gallery p {
+	font:bold 14px arial, sans-serif;
+	text-transform:capitalize;
+	color:#f5d603;
+}
+
+#gallery img {
+	float:left;
+	margin:0 36px 30px 0;
+	border:6px #fff solid;
+}
+
+
+#gallery img:nth-child(4n+4) {
+	margin-right:0px;
+}
+
+#slider {
+	height:375px;
+	padding:;
+	margin:0 0 18px 0;
+	border:5px #ddd solid;
+	background:;
+	overflow:hidden;
+}
+
+#social {
+	height: 50px;
+	margin: 0 0 30px 0;
+	background:#111 url(../images/content_bg.jpg);
+}
+
+#social_links {
+	float:right;
+	margin:0;
+}
+
+#social_links li {
+	display:inline-block;
+	margin:0 36px 0 0;
+}
+
+#social_links li a {
+	text-decoration:none;
+	font-size:18px;
+	font-weight:bold;
+	line-height:50px;
+	color:#F5D603;
+}
+
+#twitter {
+	/*float:left;
+		width:282px;
+		margin:0 18px 0 0;*/
+}
+
+li.tweet {
+	font-family:georgia;
+	font-size:12px;
+	line-height:20px;
+	font-style:italic;
+	margin:0 0 9px 0;
+}
+
+#content li.tweet a {
+	color:#999;
+}
+
+li.tweet .tweet_date {
+	margin:-12px 0 0 0;
+}
+
+#playlist {
+/*	float:left;
+	width:290px;*/
+}
+
+.event_list {
+	float:;
+	margin:0 0 12px 0;
+}
+
+#content .event_list p {
+	font-size:12px;
+	margin:0 0 6px 0;
+}
+
+.event_list img {
+	float:left;
+	border:3px #fff solid;
+	margin:0 18px 12px 0;
+}
+
+
+.front_post {
+	position:relative;
+	margin:0 0 9px 0;
+	padding:0 0 9px 0;
+/*	background: url(../images/dotted_divider2.png) repeat-x bottom;*/
+}
+
+.date {
+	width:59px;
+	height:67px;
+	padding:25px 0 0 0;
+	position:absolute;
+	left:-92px;
+	top:12px;
+	background:transparent url(../images/date_bg.png) no-repeat;
+	text-align:center;
+	display:none;
+}
+
+.date h4, .date h5 {
+	font-family:'Ubuntu Condensed';
+	font-size:14px;
+	font-weight:bold;
+	letter-spacing:;
+	text-transform:uppercase;
+	margin:0 0 15px 0;
+}
+
+
+
+.fan {
+	padding:9px 12px 0px 12px;
+	border:1px #ac821e solid;
+}
+
+.fan:nth-child(2n+2){
+	border:none;
+}
+
+#content .fan h3 {
+	font-size:14px;
+	font-weight:bold;
+	text-transform:capitalize;
+	margin:6px 0 5px 0;
+}
+
+#content .fan p {
+	text-transform:capitalize;
+}
+
+.fan img {
+	float:left;
+	border:3px #fff solid;
+	margin:0 15px 0 0;
+}
+
+.alt {
+	background:none;
+}
+
+.slide {
+	overflow:hidden;
+}
+
+#page_top {
+
+}
+
+#page_top h2 {
+	font-family:;
+	font-size:24px;
+	line-height:24px;
+	color:#fff;
+}
+
+#inner_wrapper {
+	padding:0;
+	background:;
+/*	border:1px #ac821e solid;*/
+}
+
+#inner_wrapper h2 {
+
+}
+
+#inner_wrapper h3 {
+	color:#333;
+}
+
+#inner_wrapper p {
+	color:#888;
+}
+
+#music_nav {
+	padding:15px 0px;
+	margin:0 0 24px 0;
+	/*background: url(../images/nav_border.jpg) repeat-x bottom;*/
+	background:;
+}
+
+
+#music_nav li {
+	font-family:'league gothic';
+	font-size:36px;
+	font-weight:normal;
+	text-transform:capitalize;
+	display:inline-block;
+	margin:0 80px 0 0;
+}
+
+#music_nav li a {
+	text-decoration:none;
+	color:#555;
+}
+
+.album {
+	float:left;
+	width:435px;
+	margin:0 30px 36px 0;
+	padding:0 0 36px 0;
+	background: url(../images/dotted_divider2.png) repeat-x bottom;
+}
+
+.album:nth-child(2n+2) {
+	margin-right:0;
+}
+
+#content .album h3 {
+	font-family:'ubuntu condensed';
+	font-size:18px;
+	font-weight:normal;
+	font-style:italic;
+}
+
+.album_pic {
+	float:left;
+	width:171px;
+	height:176px;
+	margin:0 12px 0 0;
+	background: url(../images/album_shadow.png) no-repeat center;
+	text-align:center;
+}
+
+.album_pic img {
+	border:7px #fff solid;
+}
+
+.release_date {
+	font-size:12px;
+	font-weight:bold;
+	margin:0 0 12px 0;
+	text-transform:uppercase;
+}
+
+.more {
+	float:left;
+	color:#852c01;
+	font-size:12px;
+	font-weight:;
+	text-transform:capitalize;
+}
+
+/*-------------------------gallery------------------------------*/
+
+#gallery_nav {
+	float:left;
+	width:140px;
+	padding:30px 30px;
+	background:#fff;
+}
+
+#gallery_nav ul li {
+	font-family:'ubuntu condensed';
+	font-size:18px;
+	margin:0 0 24px 0;
+}
+
+
+#gallery_nav ul li a {
+	text-decoration:none;
+	text-transform:capitalize;
+	color:#555;
+}
+
+#gallery_main {
+	float:;
+	width:;
+	padding:;
+	overflow:hidden;
+}
+
+#gallery_main p {
+	padding:0 0 40px 0;
+	margin:0 0 40px 0;
+	background: url(../images/nav_border.jpg) repeat-x bottom;
+}
+
+#gallery_wrapper {
+	padding:30px;
+	background:#111 url(../images/content_bg.jpg);
+	overflow:hidden;
+}
+
+.gallery_pic {
+	float:left;
+	width:174px;
+	height:174px;
+	padding:5px;
+	margin:0 36px 36px 0;
+	background:;
+	border:1px #444 solid;
+/*	background: url(../images/album_shadow.png) no-repeat center;*/
+	text-align:center;
+	overflow:hidden;
+}
+
+#gallery_wrapper .gallery_pic:nth-of-type(4+4n) {
+	margin-right:0;
+}
+
+#content .gallery_pic h3 {
+	font-family:'ubuntu condensed';
+	font-size:13px;
+	text-transform:uppercase;
+	padding:5px;
+	color:#fff;
+	background:#555;
+}
+
+.gallery_pic img {
+/*	border:7px #fff solid;*/
+}
+
+.outline {
+	/*float:left;
+		padding:1px;
+		background:#fbfaf9;
+		margin:0 32px 28px 0;
+		overflow:hidden;*/
+}
+
+.outline:nth-child(3n+3) {
+	margin-right:0px;
+}
+
+/*------------------------------blog styles-------------------------------*/
+
+#blog_content {
+	float:left;
+	width:640px;
+}
+
+.post {
+	position:relative;
+	padding:30px;
+	margin:0 0 24px 0;
+	background:#111 url(../images/content_bg.jpg);
+	border:1px #333 dashed;
+	border-radius:15px;
+}
+
+.post img {
+		float:left;
+		height:;
+		padding:8px;
+		margin:0 18px 18px 0;
+		background:none;
+		border:1px #555 solid;
+	/*	background: url(../images/album_shadow.png) no-repeat center;*/
+}
+
+#sidebar {
+	float:right;
+	width:240px;
+	height:;
+	padding:30px;
+	background:#111 url(../images/content_bg.jpg);
+	border:1px #333 dashed;
+	border-radius:15px;
+}
+
+.outline_sidebar {
+	float:right;
+	padding:;
+	background:;
+	margin:;
+	overflow:hidden;
+}
+
+#sidebar ul {
+	margin:0 0 22px 0;
+	padding:0 0 48px 0;
+	background: url(../images/dotted_divider2.png) repeat-x bottom;
+}
+
+#sidebar li {
+	padding:5px 0;
+	/*border-bottom:1px #d8d7d7 solid;*/
+}
+
+#sidebar li:nth-child(odd) {
+	/*background:#e3e2e2;*/
+}
+
+#sidebar li:first-child {
+/*	border-top:1px #d8d7d7 solid;*/
+}
+
+#sidebar li a {
+	font-size:13px;
+	text-decoration:none;
+	text-transform:capitalize;
+	margin:0 0 0 12px;
+	line-height:14px;
+	color:#888;
+}
+
+#sidebar h3 {
+	margin:0 0 9px 0;
+}
+
+/*---------------------------------calender styles----------------------------------------*/
+
+#calendar_wrapper {
+	border-top:2px #000 solid;
+}
+
+#calendar_wrapper h2 {
+	font-size:22px;
+	text-transform:uppercase;
+	margin:0 auto;
+	color:#fff;
+}
+
+#calendar_wrapper h3 {
+	font-size:18px;
+	margin:0 0 9px 0;
+	text-transform:capitalize;
+	color:#fff;
+}
+
+#calendar_nav {
+	height:40px;
+	padding:20px 0 6px 0;
+	margin:0 0 18px 0;
+	border-top:1px #444 solid;
+	border-bottom:3px #444 solid;
+	position:relative;
+	text-align:center;
+	background:#222;
+}
+
+
+#calendar h2 {
+	font-size:48px;
+	color:#555;
+}
+
+.event_date {
+	float:left;
+	width:;
+	height:;
+	padding:6px 18px 0 9px;
+	margin:0 18px 0 0;
+	border-right:1px #333 dashed;
+	background:;
+}
+
+.event-info {
+	float:left;
+}
+
+#content .event-info p {
+	margin:0 0 9px 0;
+}
+
+#content .event_date h3 {
+	font-size:42px;
+	font-style:;
+	margin:0 0 12px 0;
+	color:#999;
+	text-align:center;
+}
+
+#content .event_date h4 {
+	font-size:18px;
+	font-style:;
+	margin:0 0 9px 0;
+	color:#999;
+	text-transform:uppercase;
+	text-align:center;
+}
+
+#content .event_date p {
+	color:#456161;
+	font-weight:bold;
+	margin:0 0 0 0;
+	text-transform:capitalize;
+}
+
+#content .event_date p span {
+color:#fff;
+}
+
+.calendar_list {
+	padding:12px 12px 2px 12px;
+	background:#222;
+	border-top:1px #333 solid;
+	border-bottom:1px #111 solid;
+}
+
+.calendar_list:nth-of-type(odd) {
+	background:#1e1e1e;
+	border-top:1px #333 solid;
+	border-bottom:1px #111 solid;
+}
+
+
+.calendar_list:hover {
+	background:#272727;
+}
+
+.calendar_list img {
+	float:left;
+	border:3px #fff solid;
+	margin:0 18px 12px 0;
+}
+
+.alt_list {
+	background:none;
+	border:none;
+}
+
+#latest_releases {
+	padding:18px 0 0 0;
+	margin:0px;
+	overflow:hidden;
+	border-top:1px #333 dashed;
+	color:#fff;
+}
+
+#latest_releases .album {
+	width:190px;
+	float:left;
+	margin:0 45px 0 0;
+	padding:0; 
+	background:;
+}
+
+#latest_releases .album:nth-of-type(4n+4) {
+	margin-right:0;
+}
+
+#latest_releases .album img{
+	float:;
+	margin:0;
+	border:5px #ddd solid;
+}
+
+.album h3 {
+	margin:0 0 6px 0;
+}
+
+.album p {
+	font-size:11px;
+	color:#555;
+	margin:0 0 12px 0;
+}
+
+
+/*-------------------------- song playlist styles-----------------------*/
+
+.song {
+	float:left;
+	width:395px;
+	padding:20px;
+	margin:0 30px 48px 0;
+	background:#eeeeee;
+	border:1px #ddd solid;
+}
+
+.no_margin {
+	margin-right:0;
+}
+
+.border {
+	border:8px #fff solid;
+		margin:0 0 18px 0;
+}
+
+
+
+#inner_wrapper .member-bio h3 {
+	color:#852C01;
+	font-size:16px;
+	font-style:none;
+}
+
+
+/*------------------------ drop down --------------------------*/
+
+.sub-menu {
+	padding:20px;
+	display:none;
+	position:absolute;
+	left:0;
+	background:#222;
+	z-index:9999;
+}
+
+ul.sub-menu li {
+	border-bottom:1px #333 dashed;
+}
+
+ul.sub-menu li a {
+	line-height:24px;
+	margin:0 0 12px 0;
+}
+
+.show {
+	display:block;
+}
+
+
+/*-   -------------------------- album list styles------------------------------ */
+
+#album-list {
+	float:left;
+	padding:30px;
+	width:500px;
+	height:;
+	background:#111 url(../images/content_bg.jpg);
+}
+
+.album-info {
+	padding:18px 0 24px 0;
+	margin:0 0 18px 0;
+	border-bottom:1px #333 solid;
+}
+
+#inner_wrapper .album-info h3 {
+	color:#fff;
+}
+
+h4 {
+	color:#fff;
+}
+
+.album-info img {
+	float:left;
+	margin:0 18px 18px 0;
+	border:4px #f4f4f4 solid;
+}
+
+.album-cover {
+	float:left;
+	margin:0 18px 18px 0;
+}
+
+#music-player {
+	float:right;
+	width:300px;
+	overflow:hidden;
+}
+
+#group-bio {
+	float:right;
+	width:300px;
+}
+
+#individual-bio {
+	float:left;
+	width:560px;
+}
+
+.bio-wrapper {
+	padding:30px;
+	background:#111 url(../images/content_bg.jpg);
+	overflow:hidden;
+}
+
+.bio-wrapper img {
+	float:left;
+	border:5px #fff solid;
+}
+
+.member-bio {
+	overflow:hidden;
+	padding:0 0 24px 0;
+	margin:0 0 24px 0;
+	border-bottom:1px #333 dotted;
+}
+
+.member-bio h4 {
+	font-size:12px;
+	margin:0 0 12px 0;
+	color:#456161;
+}
+
+.member-bio h4 a {
+	color:#456161;
+}
+
+.member-bio img {
+	margin:0 30px 18px 0;
+}
+
+.dark-bg {
+	padding:30px;
+	margin:0 0 9px 0;
+	background:#111 url(../images/content_bg.jpg);
+}
+
+#nav-pointer {
+	width:200px;
+	height:50px;
+	/*position:absolute;*/
+	top:0;
+	right:40px;
+	background:#fff;
+}
+
+a.selected {
+	text-decoration:underline;
+}
+
+
+#blog_content small {
+	color:#456161;
+}
+
+.entry {
+	margin:18px 0 0 0;
+}
+
+.center-wrapper {
+	width:980px;
+	margin:0 auto;
+}
+
+#page_content {
+	border:1px #333 dashed;
+}
+
+
+/*------------------------------------------- footer styles ----------------------*/
+
+#footer_nav {
+	height:18px;
+	padding:0 15px;
+	margin:18px 0 0 0;
+	background:/*#111 url(../images/content_bg.jpg)*/;
+}
+
+#footer_nav > li {
+	font-family:helvetica;
+	font-size:14px;
+	padding-right:30px;
+	margin-right:30px;
+	border-right:1px #333 dashed;
+	display:inline-block;
+}
+
+#footer_nav > li a {
+	color:#f8f8f9;
+	line-height:24px;
+	text-decoration:none;
+	text-transform:capitalize;
+	letter-spacing:1px;
+}
+
+#footer_nav .current-menu-item a {
+	color:#B63F05;
+}
+
+.column {
+	width:290px;
+	float:left;
+	margin:0 18px 0 0;
+}
+
+.last {
+	margin-right:0px;
+}
+
+.tweet {
+	color:#999;
+}
+
+.tweet .link {
+	color:#456161;
+}
+
+.tweet .mention {
+	color:#eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none; }
+
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+
+  a:after { content: " (" attr(href) ")"; } 
+
+  abbr:after { content: " (" attr(title) ")"; }
+  
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  
+  img { page-break-inside: avoid; }
+
+  @page { margin: 0.5cm; }
+
+  p, h2, h3 { orphans: 3; widows: 3; }
+
+  h2, h3{ page-break-after: avoid; }
+}
+
+
+
+/*
+ * Media queries for responsive design
+ */
+
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+  
+}
+
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+  
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  
+  
+  /* Prevent iOS, WinMobile from adjusting font size */
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
+}
+
