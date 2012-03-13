@@ -3,7 +3,7 @@
 require_once('twitter-feed.php');
 require_once('slider_code.php');
 require_once('custom_functions.php');
-
+require_once('gallery-post-type.php');
 
 
 /* 
