@@ -1,12 +1,15 @@
 <?php
 
 function add_myjavascript(){
-	wp_enqueue_script( 'jquery-1.7.1', get_bloginfo('template_directory') . "/js/jquery-1.7.1.min.js", array( 'jquery' ) );
-	wp_enqueue_script( 'script', get_bloginfo('template_directory') . "/js/script.js", array( 'jquery' ) );
+	wp_enqueue_script( 'jquery-1.7.1', get_bloginfo('template_directory') . "/js/jquery-1.7.1.min.js");
+	
 	
 	wp_enqueue_script('nivo-slider', (get_bloginfo('template_url')) . '/js/jquery.nivo.slider.pack.js', array('jquery-1.7.1'));
 	wp_enqueue_script('ks-slider', (get_bloginfo('template_url')) . '/js/ks-slider.js', array('nivo-slider'));
 	
+	wp_enqueue_script('mousewheel', (get_bloginfo('template_url')) . '/fancybox/jquery.mousewheel-3.0.4.pack.js', array('jquery-1.7.1'));
+	wp_enqueue_script('fancybox', (get_bloginfo('template_url')) . '/fancybox/jquery.fancybox-1.3.4.pack.js', array('jquery-1.7.1'));
+	wp_enqueue_script( 'script', get_bloginfo('template_directory') . "/js/script.js", array( 'jquery-1.7.1' ) );
 }
   
 add_action( 'init', 'add_myjavascript' );
@@ -72,6 +75,98 @@ function formatTweet($str){
 	);
 
 	return $str;
+}
+
+// get gallery images
+
+function wpo_get_images($size = 'thumbnail', $limit = '0', $offset = '0', $big = 'large', $post_id = '$post->ID', $link = '1', $img_class = 'gallery-image', $wrapper = 'li', $wrapper_class = 'attachment-image-wrapper') {
+	global $post;
+
+	$images = get_children( array('post_parent' => $post_id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID') );
+
+	if ($images) {
+
+		$num_of_images = count($images);
+
+		if ($offset > 0) : $start = $offset--; else : $start = 0; endif;
+		if ($limit > 0) : $stop = $limit+$start; else : $stop = $num_of_images; endif; 
+		
+	?>
+		<ul class="clearfix">
+	<?php
+
+		$i = 0;
+		foreach ($images as $attachment_id => $image) {
+			if ($start <= $i and $i < $stop) {
+			$img_title = $image->post_title;   // title.
+			$img_description = $image->post_content; // description.
+			$img_caption = $image->post_excerpt; // caption.
+			//$img_page = get_permalink($image->ID); // The link to the attachment page.
+			$img_alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+			if ($img_alt == '') {
+			$img_alt = $img_title;
+			}
+				if ($big == 'large') {
+				$big_array = image_downsize( $image->ID, $big );
+ 				$img_url = $big_array[0]; // large.
+				} else {
+				$img_url = wp_get_attachment_url($image->ID); // url of the full size image.
+				}
+
+			// FIXED to account for non-existant thumb sizes.
+			$preview_array = image_downsize( $image->ID, $size );
+			if ($preview_array[3] != 'true') {
+			$preview_array = image_downsize( $image->ID, 'thumbnail' );
+ 			$img_preview = $preview_array[0]; // thumbnail or medium image to use for preview.
+ 			$img_width = $preview_array[1];
+ 			$img_height = $preview_array[2];
+			} else {
+ 			$img_preview = $preview_array[0]; // thumbnail or medium image to use for preview.
+ 			$img_width = $preview_array[1];
+ 			$img_height = $preview_array[2];
+ 			}
+ 			// End FIXED to account for non-existant thumb sizes.
+
+ 			///////////////////////////////////////////////////////////
+			// This is where you'd create your custom image/link/whatever tag using the variables above.
+			// This is an example of a basic image tag using this method.
+			?>
+			<?php if ($wrapper != '0') : ?>	
+				
+		<li class="gallery-image  <?php echo $wrapper_class; ?>">
+				
+			<?php endif; ?>
+			<?php if ($link == '1') : ?>
+			<a class="lightbox" rel="<?php echo $post_id; ?>" href="<?php echo $img_url; ?>" title="<?php echo $img_title; ?>">
+			<?php endif; ?>
+			<img class="<?php echo $img_class; ?>" src="<?php echo $img_preview; ?>" alt="<?php echo $img_alt; ?>" title="<?php echo $img_title; ?>" />
+			<?php if ($link == '1') : ?>
+			</a>
+			<?php endif; ?>
+			<?php if ($img_caption != '') : ?>
+			<div class="attachment-caption"><?php echo $img_caption; ?></div>
+			<?php endif; ?>
+			<?php if ($img_description != '') : ?>
+			<div class="attachment-description"><?php echo $img_description; ?></div>
+			<?php endif; ?>
+			<?php if ($wrapper != '0') : ?>
+				
+		</li>
+			
+			
+			
+			<?php endif; ?>
+			<?
+			// End custom image tag. Do not edit below here.
+			///////////////////////////////////////////////////////////
+
+			}
+			$i++;
+		}
+		?>
+		</ul>
+	<?php
+	}
 }
 
 

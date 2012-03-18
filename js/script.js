@@ -1,6 +1,20 @@
 (function ($){
 
 	$(document).ready(function(){
+		
+		$("a.lightbox").fancybox({
+				'showCloseButton':  true,
+				'showNavArrows' :   true,
+				'transitionIn'	:	'elastic',
+				'transitionOut'	:	'elastic',
+				'speedIn'		:	600, 
+				'speedOut'		:	200, 
+				'overlayShow'	:	true,
+				'cyclic'		:   true,
+				'overlayOpacity':   0.8,
+				'overlayColor'  :   '#111',
+				'autoScale'		:   true
+			});
 	
 	// main navigation highlight
 			

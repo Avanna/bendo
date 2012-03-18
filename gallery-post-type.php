@@ -27,7 +27,7 @@ $labels = array(
 		'supports' => array('title','thumbnail','editor')
 	  ); 
 	
-register_post_type('gallery',$args);
+register_post_type('gallery', $args);
 
 add_filter('manage_edit-gallery_columns', 'add_new_gallery_columns');
 

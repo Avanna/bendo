@@ -329,7 +329,7 @@ header p {
 }
 
 #content h2 {
-	font-family:'league gothic';
+	font-family:oswald;
 	font-size: 24px;
 	font-weight: normal;
 	line-height: 26px;
@@ -591,10 +591,6 @@ li.tweet .tweet_date {
 
 #inner_wrapper h2 {
 
-}
-
-#inner_wrapper h3 {
-	color:#333;
 }
 
 #inner_wrapper p {
@@ -964,7 +960,7 @@ color:#fff;
 #latest_releases .album img{
 	float:;
 	margin:0;
-	border:5px #ddd solid;
+	border:5px #333 solid;
 }
 
 .album h3 {
@@ -1096,15 +1092,18 @@ h4 {
 
 .member-bio {
 	overflow:hidden;
-	padding:0 0 24px 0;
-	margin:0 0 24px 0;
-	border-bottom:1px #333 dotted;
+	padding:30px 0 18px 0;
+	margin:0;
+	border-top:1px #333 solid;
+	border-bottom:1px #111 solid;
+	background:;
 }
 
 .member-bio h4 {
 	font-size:12px;
 	margin:0 0 12px 0;
 	color:#456161;
+	text-transform:capitalize;
 }
 
 .member-bio h4 a {
@@ -1206,8 +1205,16 @@ a.selected {
 }
 
 
+/*------------------------------------ gallery styles ------------------------------*/
 
+.gallery-image {
+	float:left;
+	margin:0 18px 18px 0;
+}
 
+.attachment-image {
+	border:5px #333 solid;
+}
 
 
 

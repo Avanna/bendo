@@ -117,13 +117,14 @@ Template Name: home
 				
 			<div class="album clearfix">
 				
-				<?php
+			<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php
 		            	if(has_post_thumbnail()) {
 					    the_post_thumbnail('album-image', array( 'alt' => get_the_title(),
 					    'title' => get_the_title()
 					    ));
 					}
 					?>
+			</a>
 
 			</div>
 				
