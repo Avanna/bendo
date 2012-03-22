@@ -10,23 +10,13 @@ Template Name: Music
 					
 		<div id="page_content" class="clearfix">
 			
-			<!-- <div id="social">
-
-							<ul id="social_links">
-								<li><a href="#" title="">facebook</a></li>
-								<li><a href="#" title="">twitter</a></li>
-								<li><a href="#" title="">google+</a></li>
-							</ul>	
-
-						</div> --><!--/social-->
-			
 			<div id="inner_wrapper" class="clearfix">
 						
 			<div class="padding clearfix">
 				
 			<div id="album-list" class="cleafix">
 
-				<h2>latest releases</h2>
+				<h2><?php wp_title("",true); ?></h2>
 				
 				<?php global $wp_query; 
 
@@ -73,12 +63,16 @@ Template Name: Music
 
 			</div><!-- #album-list -->
 			
-			<div class="music-player dark-bg clearfix">
+			<div id="player-wrapper">
+			
+				<div class="music-player clearfix">
+			
+					<h2>Playlist</h2>
+			
+					<?php include ('playlist/playlist.php' ); ?>
+				</div><!-- music player -->
 				
-				<h2>Playlist</h2>
-				
-				<?php include ('playlist/playlist.php' ); ?>
-			</div><!-- music player -->
+			</div><!-- player wrapper -->
 				
 			</div><!--/padding-->
 			

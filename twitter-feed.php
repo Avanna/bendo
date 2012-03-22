@@ -2,8 +2,11 @@
 
 function ks_twitter($atts) {
 	
+	global $options;
+	
 	extract( shortcode_atts( array(
-			'username' => 'cnn',
+		
+			'username' => $options['twitter_username'],
 			), $atts ) );
 
 

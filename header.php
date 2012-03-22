@@ -36,22 +36,10 @@
 
 	<!-- hook up music player options -->
 
-	<?php  $options = get_option('odthemes_theme_options'); ?>
+	<?php $options = get_option('bendo'); ?>
 	
   <!-- Playlist Styles -->
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/playlist/css/playlist.css">
-
-	<?php if( $options['od_custom_css'] == '1' ) : ?>  
-		
-	<style type="text/css" media="screen">  
-	.description {  
-	<?php if( $options['od_font_color'] != '' ) : ?>color:<?php echo $options['od_font_color']; ?> !important; <?php else: ?><?php endif; ?>  
-	<?php if( $options['od_font_size'] != '' ) : ?>font-size:<?php echo $options['od_font_size']; ?> !important; <?php else: ?><?php endif; ?>  
-	}  
-	</style>  
-	
-	<?php else: ?>  
-	<?php endif; ?>
  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="<?php bloginfo('template_directory'); ?>/js/modernizr-1.5.min.js"></script>
@@ -60,6 +48,10 @@
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/nivo-slider.css" type="text/css" media="screen"  />
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/fullcalendar.css" type="text/css" media="screen"  />
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"  />
+
+<!-- nivo slider themes styles -->
+
+<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/themes/default/default.css" type="text/css" media="screen"  /> 
 
 <!-- google fonts -->
 
@@ -84,6 +76,8 @@
 
 
 
+
+
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 
 <!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
@@ -99,11 +93,29 @@
 	<div id="wrapper" class="clearfix">
 		
 		<header class="clearfix">
-
-			<h1 id="logo">bendo</h1>
-			<p>a premium wordpress musician theme</p>
-
+			
+	<?php if(($options['logo_choice'] === 'custom_logo')) {
+				if($options['logo_uploader']) {
+					$logo = $options['logo_uploader'];
+				}
+		
+			if( array_key_exists('logo_choice', $options)) {
+				
+				if($options['logo_choice'] === 'custom_logo') {
+					echo '<img src="'.$logo.'" />'; 
+				}
+			}
+		}
+		else {
+	?>
+			<hgroup>
+				<h1 id="logo"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
+				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
+			</hgroup>
+	<?php } ?>
 		</header><!--/header-->
+		
+		
 	
 		<div id="content">
 			

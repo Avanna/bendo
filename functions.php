@@ -4,6 +4,7 @@ require_once('twitter-feed.php');
 require_once('slider_code.php');
 require_once('custom_functions.php');
 require_once('gallery-post-type.php');
+require_once('video-post-type.php');
 
 
 /* 
@@ -74,6 +75,7 @@ function ks_events_init() {
 			'maxPages' => $max,
 			'nextLink' => next_posts($max, false),
 			'ajaxurl' => admin_url('admin-ajax.php')
+			
 		) 
 	);
 	
@@ -469,20 +471,42 @@ $clean_et = date($time_format, $meta_et);
  
 // - security -
  
+$ks_events_state = '';
+if(isset($custom["ks_events_state"])) {
+	$ks_events_state = $custom["ks_events_state"][0];
+}
 
+$ks_events_city = '';
+if(isset($custom["ks_events_city"])) {
+	$ks_events_city = $custom["ks_events_city"][0];
+}
+
+$ks_events_address = '';
+if(isset($custom["ks_events_address"])) {
+	$ks_events_address = $custom["ks_events_address"][0];
+}
  
 // - output -
  
 ?>
 <div class="ks-meta">
+
 <ul>
 	<?php wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' ); ?>
-    <li><label>Start Date</label><input name="ks_events_startdate" class="ksdate" value="<?php echo $clean_sd; ?>" /></li>
 	
-    <li><label>Start Time</label><input name="ks_events_starttime" value="<?php echo $clean_st; ?>" /><em>Use 24h format (7pm = 19:00)</em></li>
-    <li><label>End Date</label><input name="ks_events_enddate" class="ksdate" value="<?php echo $clean_ed; ?>" /></li>
-    <li><label>End Time</label><input name="ks_events_endtime" value="<?php echo $clean_et; ?>" /><em>Use 24h format (7pm = 19:00)</em></li>
+	<li><label>State</label><br/><input type="text" name="ks_events_state" value="<?php echo $ks_events_state; ?>" /></li>
+	
+	<li><label>City</label><br/><input type="text" name="ks_events_city" value="<?php echo $ks_events_city; ?>" /></li>
+	
+	<li><label>Address</label><br/><input type="text" name="ks_events_address" value="<?php echo $ks_events_address; ?>" /></li>
+	
+    <li><label>Start Date</label><br/><input type="text" name="ks_events_startdate" class="ksdate" value="<?php echo $clean_sd; ?>" /></li>
+	
+    <li><label>Start Time</label><br/><input type="text" name="ks_events_starttime" value="<?php echo $clean_st; ?>" /><em>Use 24h format (7pm = 19:00)</em></li>
+    <li><label>End Date</label><br/><input type="text" name="ks_events_enddate" class="ksdate" value="<?php echo $clean_ed; ?>" /></li>
+    <li><label>End Time</label><br/><input type="text" name="ks_events_endtime" value="<?php echo $clean_et; ?>" /><em>Use 24h format (7pm = 19:00)</em></li>
 </ul>
+
 </div>
 
 <?php
@@ -526,6 +550,25 @@ return $post;
 endif;
 $updateendd = strtotime ( $_POST["ks_events_enddate"] . $_POST["ks_events_endtime"]);
 update_post_meta($post_id, "ks_events_enddate", $updateendd );
+
+if(!isset($_POST["ks_events_state"])):
+return $post;
+endif;
+$updatestate = $_POST["ks_events_state"];
+update_post_meta($post_id, "ks_events_state", $updatestate );
+
+if(!isset($_POST["ks_events_city"])):
+return $post;
+endif;
+$updatecity = $_POST["ks_events_city"];
+update_post_meta($post_id, "ks_events_city", $updatecity );
+
+if(!isset($_POST["ks_events_address"])):
+return $post;
+endif;
+$updateaddress = $_POST["ks_events_address"];
+update_post_meta($post_id, "ks_events_address", $updateaddress );
+
 }
 
 // 6. Customize Update Messages
@@ -572,6 +615,15 @@ function events_scripts() {
     wp_enqueue_script('jquery-ui', get_bloginfo('template_url') . '/js/jquery-ui-1.8.18.custom.min.js', array('jquery'));
     wp_enqueue_script('ui-datepicker', get_bloginfo('template_url') . '/js/jquery.ui.datepicker.min.js');
     wp_enqueue_script('custom_script', get_bloginfo('template_url').'/js/ks-admin.js', array('jquery'));
+
+	wp_localize_script(
+		'custom_script',
+		'ks_variables',
+		array (
+			'templateUrl' => get_bloginfo('template_url')
+			
+		) 
+	);
 }
  
 add_action( 'admin_print_styles-post.php', 'events_styles', 1000 );

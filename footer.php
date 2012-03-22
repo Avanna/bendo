@@ -1,7 +1,9 @@
 	
-		<footer>
+		<footer class="clearfix">
 
 			<?php wp_nav_menu(array('menu' => 'footer_nav', 'menu_id' =>'footer_nav')); ?>
+			
+			<p id="copyright">&#169 Konverge Studios</p>
 
 		</footer>
 		

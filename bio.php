@@ -15,12 +15,14 @@ Template Name: Bio
 					
 			<div id="group-bio">
 
-					<h2>The Group</h2>
+					
 
 						<?php
 							while ( have_posts() ) : the_post(); ?>
 
 						<div class="member-bio">
+							
+							<h2>The Group</h2>
 
 							<?php if ( has_post_thumbnail() ) {
 							  the_post_thumbnail('medium');
@@ -29,18 +31,20 @@ Template Name: Bio
 							<h3><?php echo	the_title();?></h3>
 
 							<p><?php echo the_content(); ?></p>
+							
+								<div class="fb-like-box" data-href="http://www.facebook.com/platform" data-width="340" data-show-faces="true" data-stream="false" data-header="false"></div>
 
 						</div><!-- member-bio-->
 
 						<?php
 							endwhile;
 						?>
+						
+					
 					
 			</div><!-- group-bio -->
 					
 			<div id ="individual-bio">
-						
-				<h2>group members</h2>
 						
 					<?php $args = array( 'post_type' => 'Members', 'posts_per_page' => 5 );
 						$loop = new WP_Query( $args );

@@ -22,13 +22,20 @@
 
 					 <div class="post clearfix">
 						
-					<?php the_post_thumbnail(); ?>
+						<?php $date = get_the_time("U"); ?>
+
+						<div class="event_date clearfix">
+							<h3><?php echo date('d', $date); ?></h3>
+							<h4><?php echo date('M', $date); ?></h4>
+						</div><!-- event_date -->
 
 					 
 					 <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+					
+					<div class="clear"></div>
+					
+					<?php the_post_thumbnail('album-image'); ?>
 
-					 
-					 <small><?php the_time('F jS, Y') ?></small>
 
 					  <div class="entry">
 					    <?php the_content(); ?>

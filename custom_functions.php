@@ -9,11 +9,72 @@ function add_myjavascript(){
 	
 	wp_enqueue_script('mousewheel', (get_bloginfo('template_url')) . '/fancybox/jquery.mousewheel-3.0.4.pack.js', array('jquery-1.7.1'));
 	wp_enqueue_script('fancybox', (get_bloginfo('template_url')) . '/fancybox/jquery.fancybox-1.3.4.pack.js', array('jquery-1.7.1'));
+	
+	wp_enqueue_script('simplemodal', (get_bloginfo('template_url')) . '/js/jquery.simplemodal.1.4.2.min.js', array('jquery-1.7.1'));
+	
 	wp_enqueue_script( 'script', get_bloginfo('template_directory') . "/js/script.js", array( 'jquery-1.7.1' ) );
+	
+	
+	// retrieve options to localize for use as javascript variables
+	$options = get_option('bendo');
+	
+	$transition = 'fade';
+	if(array_key_exists('transition', $options)) {
+		$transition = $options['transition'];
+	}
+	
+	$animSpeed = 400;
+	if(array_key_exists('slider_speed', $options)) {
+		$animSpeed = $options['slider_speed'];
+	}
+	
+	$pauseTime = 3000;
+	if(array_key_exists('slider_pause', $options)) {
+		$pauseTime = $options['slider_pause'];
+	}
+	
+	$pauseTime = 3000;
+	if(array_key_exists('slider_pause', $options)) {
+		$pauseTime = $options['slider_pause'];
+	}
+	
+	$directionNav = 1;
+	if(array_key_exists('slider_navigation', $options)) {
+		$directionalNav = $options['slider_navigation'];
+	}
+	
+	$directionNavHide = 1;
+	if(array_key_exists('hover_arrows', $options)) {
+		$directionalNavHide = $options['hover_arrows'];
+	}
+	
+	wp_localize_script(
+			'script',
+			'bendoOptions',
+			array(
+				'transition' => $transition,
+				'animSpeed'  => $animSpeed,
+				'pauseTime'  => $pauseTime,
+				'directionNav' => $directionNav,
+				'directionNavHide' => $directionNavHide
+			)
+		);
 }
+
+
   
 add_action( 'init', 'add_myjavascript' );
 
+//add custom admin area stylesheet
+add_action('init', 'add_ks_stylesheet');
+
+    /*
+     * Enqueue style-file, if it exists.
+     */
+
+  function add_ks_stylesheet() {
+       wp_enqueue_style( 'ks_admin_styles', (get_bloginfo('template_url')).'/admin/css/ks_admin.css' );
+  }
 
 
 if ( function_exists('register_sidebar') )
@@ -153,8 +214,6 @@ function wpo_get_images($size = 'thumbnail', $limit = '0', $offset = '0', $big =
 				
 		</li>
 			
-			
-			
 			<?php endif; ?>
 			<?
 			// End custom image tag. Do not edit below here.
@@ -168,6 +227,4 @@ function wpo_get_images($size = 'thumbnail', $limit = '0', $offset = '0', $big =
 	<?php
 	}
 }
-
-
 ?>

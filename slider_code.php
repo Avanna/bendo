@@ -11,7 +11,9 @@ ob_start();
 
 ?>
 
-<div id="slider-wrapper theme-default">
+<div class="slider-wrapper theme-default">
+	
+	<div class="ribbon"></div>
 	
 	<?php global $wp_query; 
 			

@@ -3,11 +3,12 @@
 	$(document).ready(function() {
 	
 		 $('#slider').nivoSlider({
-			effect: 'fade',
+			effect: 'sliceUpLeft',
 			animSpeed: 400, // Slide transition speed
 			pauseTime: 5000,
 			controlNav: true,
-			controlNavThumbs: true
+			controlNavThumbs: true,
+			captionOpacity: 0
 		});
 	});
 	

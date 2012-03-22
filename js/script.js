@@ -2,6 +2,15 @@
 
 	$(document).ready(function(){
 		
+		$('.directions').click(function (e) {
+				$.modal('<iframe src="'+this.href+'&output=embed"></iframe><p class="larger"><a target="_blank" href="'+this.href+'">Get Directions</a></p>',
+					{ 
+						minWidth : 600,
+					  	minHeight: 400
+					});
+				return false;
+			});
+		
 		$("a.lightbox").fancybox({
 				'showCloseButton':  true,
 				'showNavArrows' :   true,
@@ -33,8 +42,7 @@
 		
 		//main navigation drop down
 
-
-		$('#main_nav li').hover(function() {
+		$('#main_nav li, #footer_nav li').hover(function() {
 			$(this).find('.sub-menu').addClass('show');
 			},
 			function() {

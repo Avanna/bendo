@@ -9,26 +9,13 @@ Template Name: Gallery
 		<div id="page_content" class="clearfix">
 			
 			
-			<div id="inner_wrapper" class="clearfix">
-				
-				
-				<!-- <div id="gallery_nav">
-									
-									<ul>
-										<li><a href="" title="">the tour</a></li>
-										<li><a href="#">at home</a></li>
-										<li><a href="#">some fans</a></li>
-										<li><a href="#">in the studio</a></li>
-									</ul>
-									
-								</div><!--gallery_nav-->
-				
+			<div id="inner_wrapper" class="clearfix">				
 				
 				<div id="gallery_main">
 					
 					<div id="gallery_wrapper" class="clearfix">
 						
-						<h2>Browse our picture and tour gallery</h2>
+						<h2><?php wp_title("",true); ?></h2>
 						
 						<?php		
 							// $monthVal = ($month != 1 ? $month - 1 : 12);
