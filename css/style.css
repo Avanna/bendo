@@ -281,11 +281,16 @@ header p {
 		background: url(../images/logo.png) no-repeat;*/
 }
 
+#logo a {
+	color:#fff;
+}
+
 #main_nav {
 	height:56px;
 	padding:0;
 	margin:0 0 18px 0;
-	border-bottom:1px #333 solid;
+	border:1px #333 solid;
+	border-top:none;
 	/*background:#000 /*url(../images/content_bg.jpg)*/;*/
 }
 
@@ -309,7 +314,7 @@ header p {
 	letter-spacing:1px;
 }
 
-#main_nav .current-menu-item a {
+.current-menu-item a {
 	color:#cc080c;
 }
 
@@ -439,6 +444,8 @@ header p {
 	margin-right:0px;
 }
 
+/*-------------------------------- slider styles -----------------------*/
+
 #slider {
 	width:;
 	height:300px;
@@ -448,6 +455,16 @@ header p {
 	background:;
 	overflow:hidden;
 	display:;
+}
+
+.nivo-caption {
+	text-align:center;
+	padding:6px 0 0 0;
+	font-weight:bold;
+}
+
+#content .nivo-caption p {
+	font-size:16px;
 }
 
 #social {
@@ -854,7 +871,7 @@ li.tweet .tweet_date {
 }
 
 #calendar_wrapper h3 {
-	font-size:18px;
+	font-size:16px;
 	margin:0 0 9px 0;
 	text-transform:capitalize;
 	color:#fff;
@@ -1305,10 +1322,6 @@ a.selected {
 	text-decoration:none;
 	text-transform:capitalize;
 	letter-spacing:1px;
-}
-
-#footer_nav .current-menu-item a {
-	color:#B63F05;
 }
 
 footer #copyright {

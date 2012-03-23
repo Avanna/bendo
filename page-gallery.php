@@ -45,6 +45,15 @@ Template Name: Gallery
 					
 				</div><!--/gallery_main-->
 				
+				
+				
+				<?php
+					if($options['gallery_sidebar'] == 1) {
+				
+							include('sidebar.php'); 
+							
+					} ?>
+				
 			</div><!--/inner_wrapper-->
 		
 		</div><!--/page_content-->

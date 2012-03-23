@@ -36,7 +36,9 @@
 
 	<!-- hook up music player options -->
 
-	<?php $options = get_option('bendo'); ?>
+	<?php $options = get_option('bendo'); 
+		// print_r($options);
+	?>
 	
   <!-- Playlist Styles -->
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/playlist/css/playlist.css">
@@ -52,6 +54,12 @@
 <!-- nivo slider themes styles -->
 
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/themes/default/default.css" type="text/css" media="screen"  /> 
+
+<!-- custom layout css options -->
+
+	<?php if($options['gallery_sidebar'] == 1 ) {?>
+		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/gallery-sidebar.css" type="text/css" media="screen"  /> 
+	<?php } ?>
 
 <!-- google fonts -->
 

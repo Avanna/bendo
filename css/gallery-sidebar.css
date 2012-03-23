@@ -1,0 +1,7 @@
+#gallery_main {
+	float:left;
+	width:640px;
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}

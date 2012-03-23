@@ -368,6 +368,7 @@ function optionsframework_options() {
 	
 	$slider_pause = array ('2000' => '2000', '3000' => '3000', '4000' => '4000', '5000' => '5000', '6000' => '6000');
 	
+	$caption_opacity = array ('0'=>'0', '0.2' =>'0.2', '0.4' => '0.4', '0.5' => '0.5', '0.6' => '0.6', '0.7'=> '0.7','0.8' => '0.8','0.9'=>'0.9','1' => '1');
 	
 	// Pull all the categories into an array
 	$options_categories = array();  
@@ -455,6 +456,35 @@ function optionsframework_options() {
 						"std" => "",
 						"type" => "text",
 						"class" => "mini"); //mini, tiny, small
+					
+	// begin layout settings
+
+	$options[] = array( "name" => "Layout",
+						"type" => "heading");
+						
+	$options[] = array( "name" => "Show full page gallery with no side bar",
+						"desc" => "Show the sidebar on the gallery page",
+						"id" => "gallery_sidebar",
+						"std" => "0",
+						"type" => "checkbox");
+					
+	$options[] = array( "name" => "Make a custom color scheme",
+						"desc" => "This will allow you to set custom colors below. Just uncheck it to revert to the default color scheme. Please Note that the new color scheme relies on javascript being enabled in the browser",
+						"id" => "color_scheme",
+						"std" => "0",
+						"type" => "checkbox");
+						
+	$options[] = array( "name" => "Headline Color",
+						"desc" => "Select headline color.",
+						"id" => "headline_color",
+						"std" => "",
+						"type" => "color");
+						
+	$options[] = array( "name" => "link Color",
+						"desc" => "Select headline color.",
+						"id" => "link_color",
+						"std" => "",
+						"type" => "color");
 	
 	// begin slider settings
 						
@@ -490,6 +520,20 @@ function optionsframework_options() {
 						"type" => "select",
 						"class" => "mini", //mini, tiny, small
 						"options" => $slider_pause);
+			
+	$options[] = array( "name" => "Show captions on slider",
+						"desc" => "Show image captions on the slider",
+						"id" => "captions_checkbox",
+						"std" => "0",
+						"type" => "checkbox");
+						
+	$options[] = array( "name" => "Caption Opacity",
+						"desc" => "Select the slider caption opacity",
+						"id" => "caption_opacity",
+						"std" => "0.8",
+						"type" => "select",
+						"class" => "mini", //mini, tiny, small
+						"options" => $caption_opacity);
 						
 	$options[] = array( "name" => "Show Directional arrows",
 						"desc" => "This will hide or show directional navigation for the slider",

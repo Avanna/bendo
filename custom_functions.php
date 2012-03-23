@@ -19,8 +19,8 @@ function add_myjavascript(){
 	$options = get_option('bendo');
 	
 	$transition = 'fade';
-	if(array_key_exists('transition', $options)) {
-		$transition = $options['transition'];
+	if(array_key_exists('slider_effects', $options)) {
+		$transition = $options['slider_effects'];
 	}
 	
 	$animSpeed = 400;
@@ -33,30 +33,56 @@ function add_myjavascript(){
 		$pauseTime = $options['slider_pause'];
 	}
 	
-	$pauseTime = 3000;
-	if(array_key_exists('slider_pause', $options)) {
-		$pauseTime = $options['slider_pause'];
+	$captionOpacity = 0.8;
+	if(array_key_exists('caption_opacity', $options)) {
+		$captionOpacity = $options['caption_opacity'];
 	}
 	
 	$directionNav = 1;
 	if(array_key_exists('slider_navigation', $options)) {
-		$directionalNav = $options['slider_navigation'];
+		$directionNav = $options['slider_navigation'];
 	}
 	
 	$directionNavHide = 1;
 	if(array_key_exists('hover_arrows', $options)) {
-		$directionalNavHide = $options['hover_arrows'];
+		$directionNavHide = $options['hover_arrows'];
 	}
 	
 	wp_localize_script(
 			'script',
-			'bendoOptions',
+			'sliderOptions',
 			array(
 				'transition' => $transition,
 				'animSpeed'  => $animSpeed,
 				'pauseTime'  => $pauseTime,
+				'opacity'	 => $captionOpacity,
 				'directionNav' => $directionNav,
 				'directionNavHide' => $directionNavHide
+			)
+		);
+		
+	$colorScheme = 0 ;
+	if(array_key_exists('color_scheme', $options)) {
+		$colorScheme = $options['color_scheme'];
+	}
+		
+	$headlineColor = '#fff';
+	if(array_key_exists('headline_color', $options)) {
+		$headlineColor = $options['headline_color'];
+	}
+	
+	$linkColor = '#852C01' ;
+	if(array_key_exists('link_color', $options)) {
+		$linkColor = $options['link_color'];
+	}
+		
+	wp_localize_script(
+			'script',
+			'colorOptions',
+			array(
+				'colorScheme' => $colorScheme,
+				'headline' => $headlineColor,
+				'link' => $linkColor
 			)
 		);
 }

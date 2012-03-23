@@ -2,6 +2,16 @@
 
 	$(document).ready(function(){
 		
+		// color scheme options 
+		
+		var headlineColor = colorOptions['headline'];
+		var link 		  = colorOptions['link'];
+		
+		if (colorOptions['colorScheme'] == 1) {
+			$('#content h2, #content h2 a, .current-menu-item a').css('color', headlineColor);
+			// $('#content a').css('color', link);
+		}
+		
 		$('.directions').click(function (e) {
 				$.modal('<iframe src="'+this.href+'&output=embed"></iframe><p class="larger"><a target="_blank" href="'+this.href+'">Get Directions</a></p>',
 					{ 

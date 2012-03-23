@@ -30,11 +30,19 @@ ob_start();
 	
  	<div id="slider" class="nivoSlider">
 	
-		<?php while( $query->have_posts() ) : $query->the_post(); 
+		<?php 
+		global $options;
+		
+		while( $query->have_posts() ) : $query->the_post(); 
             	if(has_post_thumbnail()) {
-			    the_post_thumbnail('slider-image', array( 'alt' => get_the_title(),
-			    'title' => get_the_title()
-			    ));
+	
+				if($options['captions_checkbox'] == 1) {
+			    	the_post_thumbnail('slider-image', array( 'alt' => get_the_title(),
+			    		'title' => get_the_title()
+			    		));
+				} else {
+					the_post_thumbnail('slider-image', array('title' => ''));
+				}
 			}
 			?>
         
