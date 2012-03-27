@@ -746,14 +746,14 @@ return $output;
 
 add_shortcode('ks-events-full', 'ks_events_full'); // You can now call onto this shortcode with [ks-events-full limit='20']
 
-function twentyeleven_comment( $comment, $args, $depth ) {
+function bendo_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'twentyeleven' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?></p>
+		<p><?php _e( 'Pingback:', 'bendo' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'bendo' ), '<span class="edit-link">', '</span>' ); ?></p>
 	<?php
 			break;
 		default :
@@ -770,22 +770,22 @@ function twentyeleven_comment( $comment, $args, $depth ) {
 						echo get_avatar( $comment, $avatar_size );
 
 						/* translators: 1: comment author, 2: date and time */
-						printf( __( '<span>%1$s %2$s</span>', 'twentyeleven' ),
+						printf( __( '<span>%1$s %2$s</span>', 'bendo' ),
 							sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
 							sprintf( '<a class="comment-time" href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 								esc_url( get_comment_link( $comment->comment_ID ) ),
 								get_comment_time( 'c' ),
 								/* translators: 1: date, 2: time */
-								sprintf( __( '%1$s', 'twentyeleven' ), get_comment_date('F d Y'))
+								sprintf( __( '%1$s', 'bendo' ), get_comment_date('F d Y'))
 							)
 						);
 					?>
 
-					<?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php edit_comment_link( __( 'Edit', 'bendo' ), '<span class="edit-link">', '</span>' ); ?>
 				</div><!-- .comment-author .vcard -->
 
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentyeleven' ); ?></em>
+					<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'bendo' ); ?></em>
 					<br />
 				<?php endif; ?>
 
@@ -794,7 +794,7 @@ function twentyeleven_comment( $comment, $args, $depth ) {
 			<div class="comment-content"><?php comment_text(); ?></div>
 
 			<div class="reply">
-				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'twentyeleven' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'bendo' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 			</div><!-- .reply -->
 		</article><!-- #comment-## -->
 
@@ -803,14 +803,14 @@ function twentyeleven_comment( $comment, $args, $depth ) {
 	endswitch;
 }
 
-function twentyeleven_content_nav( $nav_id ) {
+function bendo_content_nav( $nav_id ) {
 	global $wp_query;
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<nav id="<?php echo $nav_id; ?>">
-			<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentyeleven' ); ?></h3>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyeleven' ) ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></div>
+			<h3 class="assistive-text"><?php _e( 'Post navigation', 'bendo' ); ?></h3>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bendo' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bendo' ) ); ?></div>
 		</nav><!-- #nav-above -->
 	<?php endif;
 }
