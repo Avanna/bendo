@@ -850,7 +850,7 @@ li.tweet .tweet_date {
 #sidebar ul {
 	margin:0 0 22px 0;
 	padding:0 0 48px 0;
-	background: url(../images/dotted_divider2.png) repeat-x bottom;
+	border-bottom:1px #ddd solid;
 }
 
 #sidebar li {
@@ -1517,6 +1517,63 @@ label {
 
 
 
+
+
+
+
+
+
+
+/*--------------- required wordpress styles --------------*/
+
+.wp-caption .wp-caption-text,
+.gallery-caption {
+	color: #666;
+	font-family: Georgia, serif;
+	font-size: 12px;
+}
+
+.wp-caption {
+	background: #eee;
+	margin-bottom: 1.625em;
+	max-width: 96%;
+	padding: 9px;
+}
+
+.wp-caption .wp-caption-text {
+	margin-bottom: 0.6em;
+	padding: 10px 0 5px 40px;
+	position: relative;
+}
+.wp-caption .wp-caption-text:before {
+	color: #666;
+	content: '\2014';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	margin-right: 5px;
+	position: absolute;
+	left: 10px;
+	top: 7px;
+}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.625em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.625em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 /* 
