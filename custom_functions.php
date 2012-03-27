@@ -15,6 +15,18 @@ function add_myjavascript(){
 	wp_enqueue_script( 'script', get_bloginfo('template_directory') . "/js/script.js", array( 'jquery-1.7.1' ) );
 	
 	
+	
+	$swf_path = get_bloginfo('template_url').'/playlist/js/';
+	
+	wp_localize_script(
+			'script',
+			'playList',
+			array(
+				'swfPath' => $swf_path
+			)
+		);
+	
+	
 	// retrieve options to localize for use as javascript variables
 	$options = get_option('bendo');
 	
@@ -82,7 +94,7 @@ function add_myjavascript(){
 			array(
 				'colorScheme' => $colorScheme,
 				'headline' => $headlineColor,
-				'link' => $linkColor
+				'link' => $linkColor,
 			)
 		);
 }
@@ -107,14 +119,19 @@ if ( function_exists('register_sidebar') )
     register_sidebar();
 
 add_theme_support('post-thumbnails');
-add_image_size('album-thumb', 125, 125, true);
+add_image_size('tiny-thumb', 90, 90, true);
+add_image_size('album-thumb', 110, 110, true);
 add_image_size('slider-image', 960, 400, true);
 add_image_size('album-image', 190, 190, true);
+
+// enables post and comment RSS feed links to head
+
+add_theme_support( 'automatic-feed-links' );
 
 // functions to control post excerpts
 
 function custom_excerpt_length( $length ) {
-	return 15;
+	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
@@ -240,8 +257,7 @@ function wpo_get_images($size = 'thumbnail', $limit = '0', $offset = '0', $big =
 				
 		</li>
 			
-			<?php endif; ?>
-			<?
+			<?php endif; 
 			// End custom image tag. Do not edit below here.
 			///////////////////////////////////////////////////////////
 

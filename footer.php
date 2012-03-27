@@ -1,13 +1,61 @@
 	
-		<footer class="clearfix">
-
-			<?php wp_nav_menu(array('menu' => 'footer_nav', 'menu_id' =>'footer_nav')); ?>
+		<footer id="footer" class="clearfix">
 			
+		<div id="footer_column_left" class="column">
+				
+			<h2>Gallery</h2>
+			
+			<?php	
+
+				$args = array( 
+							'post_type' => 'gallery',
+							'posts_per_page' => 1				
+						);
+
+				$loop = new WP_Query( $args );
+
+				while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				
+				<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+
+					<?php wpo_get_images('tiny-thumb','6','0','large',"$post->ID",'1','attachment-image','div','small-thumb'); ?>
+
+				
+					<?php
+						endwhile; wp_reset_query();
+					?>
+		</div><!-- footer_column_left -->
+		
+		<div id="footer_column_middle" class="column">
+			
+			<h2>twitter</h2> 
+
+			<?php do_shortcode('[ks_twitter]'); ?>
+
+			<span class="more">read more</span>
+			
+		</div><!-- footer_colum_middle -->
+		
+		<div id="footer_column_right" class="column last">
+			
+			<h2>Some Info</h2> 
+
 			<p id="copyright">&#169 Konverge Studios</p>
+			
+		</div><!-- footer_colum_right -->
+		
+		
+		
+		
+		
+		
+		<div class="clear"></div>
 
 		</footer>
 		
-			</div><!-- content  -->
+		<?php wp_nav_menu(array('menu' => 'footer_nav', 'menu_id' =>'footer_nav')); ?>
+		
+		</div><!-- content  -->
 		
 
 	</div><!-- wrapper -->
@@ -26,17 +74,7 @@
 	<!-- Playlist JavaScripts -->
 	<script src="<?php bloginfo('template_url'); ?>/playlist/js/jplayer.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/playlist/js/music-player-min.js"></script>
-	<script>  
-	    $(document).ready(function(){  
-	        $('.music-player').ttwMusicPlayer(myPlaylist, {  
-	            tracksToShow:3,  
-	            description:'Hello, this is a demo description',  
-	            jPlayer:{  
-	                swfPath: '<?php bloginfo('template_directory'); ?>/playlist/js/',  
-	            }  
-	        });  
-	    });  
-	</script>
+	
 	
 	
 
@@ -47,14 +85,6 @@
   <!--[if lt IE 7 ]>
     <script src="js/dd_belatedpng.js?v=1"></script>
   <![endif]-->
-
-
-  <!-- yui profiler and profileviewer - remove for production -->
-  <script src="<?php bloginfo('template_directory'); ?>/js/profiling/yahoo-profiling.min.js?v=1"></script>
-  <script src="<?php bloginfo('template_directory'); ?>/js/profiling/config.js?v=1"></script>
-  <!-- end profiling code -->
-
-
 
 
   <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
@@ -70,5 +100,7 @@
    })(document, 'script');
   </script>
   
+<?php wp_footer(); ?>
+
 </body>
 </html>

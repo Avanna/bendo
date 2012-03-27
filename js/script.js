@@ -4,6 +4,8 @@
 		
 		// color scheme options 
 		
+		console.log(playList['swfPath']);
+		
 		var headlineColor = colorOptions['headline'];
 		var link 		  = colorOptions['link'];
 		
@@ -53,11 +55,26 @@
 		//main navigation drop down
 
 		$('#main_nav li, #footer_nav li').hover(function() {
+			
+			var width = $(this).width();
+			
+			console.log('width');
+			
 			$(this).find('.sub-menu').addClass('show');
 			},
 			function() {
 					$(this).find('.sub-menu').removeClass('show');	
 			});
 		});
+		
+		// initialize the music player
+		
+		$('.music-player').ttwMusicPlayer(myPlaylist, {  
+            tracksToShow:3,  
+            description:'Hello, this is a demo description',  
+            jPlayer:{  
+                swfPath: playList['swfPath']  
+            }  
+        });
 
 })(jQuery);				

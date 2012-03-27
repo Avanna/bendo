@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html class="no-js" <?php language_attributes(); ?>>
 <head>
   <meta charset="utf-8">
 
@@ -23,22 +23,58 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 
 
+	<!--  get theme options from database -->
+
+	<?php 
+	
+	$options = array();
+	
+	$options = get_option('bendo'); 
+		//print_r($options);
+	?>
+
+
   <!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css" />
 
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css" />
+
+	<?php 
+		
+	$color_scheme = '';
+	
+	if(array_key_exists('theme_scheme', $options)) {
+		$color_scheme = $options['theme_scheme'];
+	}
+	
+	switch ($color_scheme) {
+			case "light": ?>
+			
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/style-light.css" />
+	
+	<?php break; 
+		case "dark": ?>
+
+  		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css" />
+
+	<?php break; 
+		case "default": 
+		 ?>
+		
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css" />
+		
+	<?php break; } ?>
+	
   <!-- For the less-enabled mobile browsers like Opera Mini -->
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">
 
 	<!-- hook up music player options -->
 
-	<?php $options = get_option('bendo'); 
-		// print_r($options);
-	?>
+	
 	
   <!-- Playlist Styles -->
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/playlist/css/playlist.css">
@@ -94,7 +130,7 @@
 <!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
 
-<body>
+<body <?php body_class(); ?>>
 
 	<div id="main_wrapper">
 
@@ -109,9 +145,11 @@
 		
 			if( array_key_exists('logo_choice', $options)) {
 				
-				if($options['logo_choice'] === 'custom_logo') {
-					echo '<img src="'.$logo.'" />'; 
-				}
+				if($options['logo_choice'] === 'custom_logo') { ?>
+					
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo $logo; ?>" /></a>
+					 
+			<?php	}
 			}
 		}
 		else {
@@ -125,6 +163,6 @@
 		
 		
 	
-		<div id="content">
+		<div id="content" class="clearfix">
 			
 		<?php wp_nav_menu(array('menu' => 'main_nav', 'menu_id' =>'main_nav')); ?>

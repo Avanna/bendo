@@ -4,11 +4,7 @@ Template Name: Music
 */
 ?>
 
-<?php include('header.php'); ?>
-		
-
-					
-		<div id="page_content" class="clearfix">
+<?php get_header(); ?>
 			
 			<div id="inner_wrapper" class="clearfix">
 						
@@ -16,7 +12,7 @@ Template Name: Music
 				
 			<div id="album-list" class="cleafix">
 
-				<h2><?php wp_title("",true); ?></h2>
+				<div class="header_bg"><h2><?php wp_title("",true); ?></h2></div>
 				
 				<?php global $wp_query; 
 
@@ -39,6 +35,9 @@ Template Name: Music
 
 				<div class="album-info clearfix">
 
+
+					<div class="album_small">
+						
 					<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php
 			            	if(has_post_thumbnail()) { 
 						    the_post_thumbnail('album-thumb', array( 'alt' => get_the_title(),
@@ -46,6 +45,8 @@ Template Name: Music
 						    ));
 						}
 						?></a>
+						
+					</div><!-- album_small -->
 						
 						<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 						
@@ -80,6 +81,4 @@ Template Name: Music
 			
 			</div><!--/inner_wrapper-->
 		
-		</div><!--/page_content-->
-		
-<?php include('footer.php'); ?>		
+<?php get_footer(); ?>		

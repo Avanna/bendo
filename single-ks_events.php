@@ -1,11 +1,5 @@
-<?php include('header.php'); ?>
+<?php get_header(); ?>
 					
-		<div id="page_content" class="clearfix">
-						
-			<div id="page_top">
-				
-			</div><!--/page_top-->
-			
 			<div id="inner_wrapper" class="clearfix">
 				
 				<div id="blog_content">
@@ -77,14 +71,10 @@
 				
 				</div><!--/blog_content-->
 				
-				<?php include('sidebar.php'); ?>
+				<?php get_sidebar(); ?>
 				
 			</div><!--/inner_wrapper-->
-		
-		</div><!--/page_content-->
-		
-		
-	
+
 	</div><!--/content-->
 	
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>

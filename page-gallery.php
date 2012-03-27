@@ -4,23 +4,17 @@ Template Name: Gallery
 */
 ?>
 
-<?php include('header.php'); ?>
-					
-		<div id="page_content" class="clearfix">
-			
-			
+<?php get_header(); ?>
+	
 			<div id="inner_wrapper" class="clearfix">				
 				
 				<div id="gallery_main">
 					
 					<div id="gallery_wrapper" class="clearfix">
 						
-						<h2><?php wp_title("",true); ?></h2>
+						<div class="header_bg"><h2><?php wp_title("",true); ?></h2></div>
 						
 						<?php		
-							// $monthVal = ($month != 1 ? $month - 1 : 12);
-							// 					$yearVal = ($month != 1 ? $year : $year - 1);
-							// 			
 
 							$current_month = strtotime('today');		
 
@@ -50,12 +44,10 @@ Template Name: Gallery
 				<?php
 					if($options['gallery_sidebar'] == 1) {
 				
-							include('sidebar.php'); 
+							get_sidebar(); 
 							
 					} ?>
 				
 			</div><!--/inner_wrapper-->
 		
-		</div><!--/page_content-->
-		
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>

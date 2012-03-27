@@ -5,7 +5,7 @@ Description: A theme for music artists
 Author: Ranga Mapuvire
 Author URI: http://KonvergeStudios.com/
 Version: 1.0
-.
+
 */
 
 
@@ -212,6 +212,17 @@ button {  width: auto; overflow: visible; }
     Author: 
  */
 
+ol {
+	margin:0 0 18px 0;
+}
+
+ol li {
+	font-size:12px;
+	line-height:1.2;
+	margin:18px;
+	color:#fff;
+}
+
 body {
 	line-height: 1;
 	color: black;
@@ -257,7 +268,7 @@ background:rgba(255,255,255,0.5);
 }
 
 header {
-	padding: 0 10px 0px 10px;
+	padding:40px 10px 0px 10px;
 	margin: 0 0 24px 0;
 	background:/*url(../images/background_trans.png)*/;
 	border-radius: 12px;
@@ -285,6 +296,11 @@ header p {
 	color:#fff;
 }
 
+#site-description {
+	float:left;
+	margin:26px 0 0 18px;
+}
+
 #main_nav {
 	height:56px;
 	padding:0;
@@ -300,7 +316,6 @@ header p {
 	padding-right:30px;
 	padding-left:30px;
 	border-right:1px #333 solid;
-	border-left:1px #333 solid;
 	position:relative;
 	display:inline-block;
 }
@@ -340,7 +355,7 @@ header p {
 
 #content h2 {
 	font-family:oswald;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: normal;
 	line-height: 1.5;
 	padding:0 0 18px 0;
@@ -357,15 +372,13 @@ header p {
 }
 
 #blog_content h2 {
-	float:left;
+/*	float:left;*/
 }
 
 #content h3 {
-	font-family:arial, sans-serif;
 	font-size:14px;
 	font-weight:bold;
 	font-style:;
-	line-height:17px;
 	margin:0 0 9px 0;
 	color:#fff;
 	text-transform:capitalize;
@@ -392,7 +405,7 @@ header p {
 
 #content_left {
 	float:left;
-	width:380px;
+	width:340px;
 	min-height:;
 	padding:;
 	background:;
@@ -493,7 +506,7 @@ header p {
 
 #twitter {
 	float:left;
-	width:240px;
+	width:260px;
 	margin:0 18px 0 0;
 }
 
@@ -513,9 +526,9 @@ li.tweet .tweet_date {
 	margin:-12px 0 0 0;
 }
 
-#playlist {
+#upcoming_events {
 	float:left;
-	width:240px;
+	width:250px;
 }
 
 .event_list {
@@ -612,7 +625,7 @@ li.tweet .tweet_date {
 }
 
 #inner_wrapper {
-	padding:0;
+	padding:16px 0 0 0;
 	background:;
 /*	border:1px #ac821e solid;*/
 }
@@ -656,6 +669,15 @@ li.tweet .tweet_date {
 }
 
 .album:nth-child(2n+2) {
+	margin-right:0;
+}
+
+.album_small {
+	float:left;
+	margin:0 18px 18px 0;
+}
+
+.album_small:nth-of-type(2n + 2) {
 	margin-right:0;
 }
 
@@ -790,7 +812,7 @@ li.tweet .tweet_date {
 	margin:0 0 24px 0;
 	background:#111 url(../images/content_bg.jpg);
 	/*border:1px #333 dashed;*/
-	border-radius:15px;
+	border-radius:9px;
 }
 
 .post p {
@@ -800,7 +822,7 @@ li.tweet .tweet_date {
 .post img {
 		float:left;
 		height:;
-		padding:8px;
+		padding:5px;
 		margin:0 18px 18px 0;
 		background:none;
 		border:1px #555 solid;
@@ -814,7 +836,7 @@ li.tweet .tweet_date {
 	padding:30px;
 	background:#111 url(../images/content_bg.jpg);
 	/*border:1px #333 dashed;*/
-	border-radius:15px;
+	border-radius:9px;
 }
 
 .outline_sidebar {
@@ -896,9 +918,9 @@ li.tweet .tweet_date {
 
 .event_date {
 	float:left;
-	width:;
+	width:75px;
 	height:;
-	padding:6px 18px 0 9px;
+	padding:6px 0;
 	margin:0 18px 0 0;
 	border-right:1px #333 dashed;
 	background:;
@@ -931,6 +953,7 @@ li.tweet .tweet_date {
 .event_entry {
 	border-top:1px #333 solid;
 	padding:18px 0 0 0;
+	margin:18px 0 18px 0;
 }
 
 a.directions {
@@ -959,9 +982,9 @@ span.directions {
   width:600px;
 padding:18px;
   background-color:#fff;
-	-moz-border-radius:12px;
-	-webkit-border-radius:12px;
-	border-radius:12px;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
   /*border:3px solid #ccc;*/
 }
 
@@ -1017,23 +1040,6 @@ padding:18px;
 
 #content .event-info p {
 	margin:0 0 5px 0;
-}
-
-#content .event_date h3 {
-	font-size:42px;
-	font-style:;
-	margin:0 0 12px 0;
-	color:#999;
-	text-align:center;
-}
-
-#content .event_date h4 {
-	font-size:18px;
-	font-style:;
-	margin:0 0 9px 0;
-	color:#999;
-	text-transform:uppercase;
-	text-align:center;
 }
 
 #content .event_date p {
@@ -1212,7 +1218,16 @@ h4 {
 
 #group-bio {
 	float:right;
-	width:380px;
+	width:320px;
+	overflow: hidden;
+	margin: 0 0 18px 0;
+	border-top: 1px #333 solid;
+	border-bottom: 1px #111 solid;
+	padding: 30px;
+	background: #111 url(../images/content_bg.jpg);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #individual-bio {
@@ -1298,6 +1313,13 @@ a.selected {
 
 /*------------------------------------------- footer styles ----------------------*/
 
+
+#footer {
+	background:#111 url(../images/content_bg.jpg);
+	padding:30px;
+	margin:30px 0 0 0;
+}
+
 #footer_nav {
 	float:left;
 	height:18px;
@@ -1327,14 +1349,25 @@ a.selected {
 footer #copyright {
 	color:#fff;
 	font-weight:bold;
-	float:right;
 	margin:18px 30px 0 0;
+}
+
+#footer_column_left {
+	width:368px;
+}
+
+#footer_column_middle {
+	width:240px;
+}
+
+#footer_column_right {
+	width:240px;
 }
 
 
 .column {
 	float:left;
-	margin:0 18px 0 0;
+	margin:0 30px 0 0;
 }
 
 .last {
@@ -1398,6 +1431,49 @@ footer #copyright {
 	color:#fff;
 }
 
+/*------------------------- comment form -----------------------------------*/
+
+label {
+	display:block;
+	margin:0 0 9px 0;
+}
+
+.required {
+	float:left;
+}
+
+#comments input {
+	padding:9px 3px;
+	border: 1px solid #ddd;
+} 
+
+#comments {
+	margin:30px 0 0 0;
+}
+
+#comment {
+	width:80%;
+}
+
+.comment {
+	padding:6px 0;
+}
+
+#comments .comment-time {
+	font-style:italic;
+}
+
+.fn {
+	font-weight:bold;
+	display:block;
+	margin:0 0 6px 0;
+}
+
+.post .comment-author img {
+	float:left;
+	margin:0 18px 18px 0;
+}
+
 #content p.intro {
 	font-size: 30px;
 	color: white;
@@ -1408,11 +1484,34 @@ footer #copyright {
 	border:1px #000 solid;
 }
 
+#sidebar .album_small {
+	margin:0 18px 18px 0;
+}
+
+.author-info {
+	margin-top:-12px;
+}
+
+.author-info p {
+	font-size:12px;
+	font-weight:bold;
+	text-transform:capitalize;
+}
+
+.author-info p span{
+	font-weight:normal;
+	color:#852C01;
+}
 
 
-
-
-
+.entry-meta {
+	padding:6px 12px;
+	margin:24px 0;
+}
+.entry-meta span {
+	font-size:12px;
+	font-weight:normal;
+}
 
 
 

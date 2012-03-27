@@ -4,21 +4,14 @@ Template Name: Events
 */
 ?>
 
-<?php include('header.php'); ?>
-
-		<div id="page_content" class="clearfix dark-bg">
-			
-			<!-- <div id="page_top">
-							
-							<h2>events/tours</h2>
-						
-						</div> --><!--/page_top-->
+<?php get_header(); ?>
 			
 			<div id="inner_wrapper" class="clearfix">
 				
-				<h2><?php wp_title("",true); ?></h2>
-				
 				<div id="calendar_wrapper">
+						
+					<div class="header_bg"><h2><?php wp_title("",true); ?></h2></div>
+				
 					
 				<?php		
 					// $monthVal = ($month != 1 ? $month - 1 : 12);
@@ -106,7 +99,5 @@ Template Name: Events
 				</div><!--/calendar_wrapper-->
 				
 			</div><!--/inner_wrapper-->
-		
-		</div><!--/page_content-->	
 	
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>

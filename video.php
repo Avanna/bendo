@@ -4,22 +4,8 @@ Template Name: Video
 */
 ?>
 
-<?php include('header.php'); ?>
-		
+<?php get_header(); ?>
 
-					
-		<div id="page_content" class="clearfix">
-			
-			<!-- <div id="social">
-
-							<ul id="social_links">
-								<li><a href="#" title="">facebook</a></li>
-								<li><a href="#" title="">twitter</a></li>
-								<li><a href="#" title="">google+</a></li>
-							</ul>	
-
-						</div> --><!--/social-->
-			
 			<div id="inner_wrapper" class="clearfix">
 						
 			<div class="padding clearfix">
@@ -106,6 +92,4 @@ Template Name: Video
 			
 			</div><!--/inner_wrapper-->
 		
-		</div><!--/page_content-->
-		
-<?php include('footer.php'); ?>		
+<?php get_footer(); ?>		

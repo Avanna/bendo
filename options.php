@@ -363,6 +363,7 @@ function optionsframework_options() {
 						'boxRainGrow' => 'boxRainReverse',
 						'boxRainGrowReverse' => 'boxRainReverse'
 						);
+	$theme_schemes = array ('light' => 'light', 'dark' => 'dark');
 						
 	$slider_speed = array ('300' => '300', '500' => '500', '800' => '800', '1200' => '1200', '1800' => '1800');
 	
@@ -461,6 +462,14 @@ function optionsframework_options() {
 
 	$options[] = array( "name" => "Layout",
 						"type" => "heading");
+					
+	$options[] = array( "name" => "Choose Scheme",
+						"desc" => "Choose the scheme to use for the theme",
+						"id" => "theme_scheme",
+						"std" => "light",
+						"type" => "select",
+						"class" => "mini", //mini, tiny, small
+						"options" => $theme_schemes);
 						
 	$options[] = array( "name" => "Show full page gallery with no side bar",
 						"desc" => "Show the sidebar on the gallery page",

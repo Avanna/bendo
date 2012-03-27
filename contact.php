@@ -4,7 +4,7 @@ Template Name: Contact
 */
 ?>
 
-<?php include('header.php'); ?>
+<?php get_header(); ?>
 
 			
 <div id="page_content" class="clearfix">
@@ -36,4 +36,4 @@ Template Name: Contact
 
 </div><!--/page_content-->
 
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>

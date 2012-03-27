@@ -4,7 +4,7 @@ Template Name: single-gallery
 */
 ?>
 
-<?php include('header.php'); ?>
+<?php get_header(); ?>
 					
 		<div id="page_content" class="clearfix">
 			
@@ -51,4 +51,4 @@ Template Name: single-gallery
 		
 		</div><!--/page_content-->
 		
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>

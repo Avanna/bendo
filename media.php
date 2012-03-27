@@ -4,7 +4,7 @@ Template Name: Media
 */
 ?>
 
-<?php include('header.php'); ?>
+<?php get_header(); ?>
 		
 		<div id="content">
 					
@@ -117,4 +117,4 @@ Template Name: Media
 		
 		</div><!--/page_content-->
 
-<?php include('footer.php'); ?>
+<?php get_footer(); ?>
