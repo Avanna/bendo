@@ -1,5 +1,12 @@
 <?php
 
+// support for theme localization
+
+function bendo_init() {
+     load_plugin_textdomain('bendo');
+}
+add_action('init', 'bendo_init');
+
 function add_myjavascript(){
 	wp_enqueue_script( 'jquery-1.7.1', get_bloginfo('template_directory') . "/js/jquery-1.7.1.min.js");
 	

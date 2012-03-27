@@ -4,7 +4,7 @@ Template Name: Album
 */
 ?>
 
-<?php get_header(); ?>
+<?php include('header.php'); ?>
 		
 
 					

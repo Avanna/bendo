@@ -2,9 +2,7 @@
 /*
 Template Name: home
 */
-?>
-
-<?php get_header(); ?>
+include('header.php'); ?>
 
 
   <?php 

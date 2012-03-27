@@ -4,7 +4,7 @@ Template Name: Media
 */
 ?>
 
-<?php get_header(); ?>
+<?php include('header.php'); ?>
 		
 		<div id="content">
 					

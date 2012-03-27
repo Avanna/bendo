@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php include('header.php'); ?>
 					
 			<div id="inner_wrapper" class="clearfix">
 				
@@ -47,7 +47,7 @@
 						<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 						<?php
 							/* translators: used between list items, there is a space after the comma */
-							$categories_list = get_the_category_list( __( ', ', 'twentyeleven' ) );
+							$categories_list = get_the_category_list( __( ', ', 'bendo' ) );
 							if ( $categories_list ):
 						?>
 						<span class="cat-links">

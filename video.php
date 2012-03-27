@@ -4,7 +4,7 @@ Template Name: Video
 */
 ?>
 
-<?php get_header(); ?>
+<?php include('header.php'); ?>
 
 			<div id="inner_wrapper" class="clearfix">
 						

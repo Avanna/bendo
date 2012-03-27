@@ -30,7 +30,7 @@
 	$options = array();
 	
 	$options = get_option('bendo'); 
-		//print_r($options);
+		print_r($options);
 	?>
 
 
