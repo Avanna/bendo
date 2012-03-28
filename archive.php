@@ -1,14 +1,17 @@
-<?php include('header.php'); ?>
+<?php 
+/*
+Template Name: Archives
+*/
+include('header.php'); ?>
 					
 	<div id="inner_wrapper" class="clearfix">
 				
 		<div id="blog_content">
 					
-			<?php if ( have_posts() ) : ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
 					
+			if (have_posts() ) : while (have_posts() ) : the_post(); ?>
+
 			<div class="post clearfix">
 						
 						
@@ -78,7 +81,7 @@
 
 					 <?php endwhile; else: 
 						
-						//wp_reset_query();
+						wp_reset_query();
 					
 					?>
 					 <p>Sorry, no posts matched your criteria.</p>

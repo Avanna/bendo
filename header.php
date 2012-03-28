@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
   <meta charset="utf-8">
@@ -113,7 +113,7 @@
 	 * generally use this hook to add elements to <head> such
 	 * as styles, scripts, and meta tags.
 	 */
-	wp_head();
+	//wp_head();
 ?>
 
 </head>
@@ -165,4 +165,4 @@
 	
 		<div id="content" class="clearfix">
 			
-		<?php wp_nav_menu(array('menu' => 'main_nav', 'menu_id' =>'main_nav')); ?>
+<?php wp_nav_menu(array('menu' => 'main_nav', 'menu_id' =>'main_nav')); ?>

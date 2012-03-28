@@ -12,8 +12,6 @@ Template Name: Bio
 					
 			<div id="group-bio" >
 
-					
-
 						<?php
 							while ( have_posts() ) : the_post(); ?>
 							

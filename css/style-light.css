@@ -120,9 +120,9 @@ text-align:center;
 	background:#fff;
 	border:1px #ddd solid;
 	background-image:none;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
 }
 
 #main_nav {
@@ -212,31 +212,36 @@ color:#fff;
 	margin:0 18px 18px 0;
 }
 
-#album-list ol {
+ol {
 	/*font-weight:bold;*/
-	padding:0 0 0 0;
+	padding:0 0 0 30px;
 	margin-bottom:36px;
-	list-style-position:inside;
+	/*list-style-position:inside;*/
 }
 
-#album-list ol p {
+ol p {
 	font-weight:normal;
 }
 
-#album-list ol li {
-	padding:6px 12px;
-	color:#555;
+ol li {
+	padding:9px 12px;
+	color:#6B6760;
 	text-transform:capitalize;
 	margin:0 0 0 0;
-	border-top:1px #ddd solid;
+	background:#faf9f5;
+	border-top:1px #DBD3A1 solid;
 }
 
-#album-list ol li:nth-child(odd) {
-	background:#f8f8f9;
+ol li:first-child {
+	border-top:2px #DBD3A1 solid;
 }
 
-#album-list ol li:last-child {
-	border-bottom:1px #ddd solid;
+ol li:last-child {
+	border-bottom:2px #dbd3a1 solid;
+}
+
+ol li:nth-child(odd) {
+	background:#f7f5ec;
 }
 
 .album_small img {
@@ -247,13 +252,30 @@ color:#fff;
 }
 
 .post, .member-bio, #group-bio, #gallery_wrapper, #album-list, #page_top{
+	margin-bottom:0;
 	background:#fff;
 	border:1px #ddd solid;
+	border-bottom:5px #f4f4f4 solid;
+	border-radius:0;
 }
 
 #sidebar {
+	width:300px;
 	background:#fff;
 	border:1px #ddd solid;
+	border-radius:0;
+	padding:0;
+}
+
+#sidebar > li {
+	padding:30px;
+	border-bottom:5px #f4f4f4 solid;
+}
+
+#sidebar ul li {
+	border-left: 5px #555 solid;
+	background: #F8F8F8;
+	margin:0 0 3px 0;
 }
 
 #sidebar li a {
@@ -281,7 +303,7 @@ color: #852C01;
 
 
 .calendar_list {
-	background:#f4f4f4;
+	background:#f7f5ec;
 	border-top:#b2b1b1 1px solid;
 	border-bottom:#b2b1b1 1px solid;
 }
@@ -291,13 +313,16 @@ background: #eee;
 }
 
 .calendar_list:nth-of-type(odd) {
-	background:#eee;
+	background:#faf9f5;
 	border-top:#b2b1b1 1px solid;
 	border-bottom:#b2b1b1 1px solid;
 }
 
 .post {
-	
+	border-bottom:5px #f4f4f4 solid;
+	padding-bottom:18px;
+	margin:0 0 0 0;
+	border-radius:0;
 }
 
 .post img {
@@ -329,14 +354,14 @@ background: #eee;
 }
 
 .album-info {
-/*	border-top:1px #eee solid;*/
+	/*border-top:5px #DBD3A1 solid;*/
 	border-bottom:1px #eee solid;
 }
 
 #footer {
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
+	/*-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;*/
 }
 
 #footer_nav > li a {
@@ -368,7 +393,7 @@ color: #222;
 
 #main_nav > li.current-menu-item {
 	/*border-top:1px #555 solid;*/
-	border-bottom:2px #555 solid;
+	border-bottom:2px #CC333F solid;
 }
 
 #main_nav > li.current-menu-item a {

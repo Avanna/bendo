@@ -78,10 +78,14 @@
 
 					 <?php endwhile; else: 
 						
-						//wp_reset_query();
+						wp_reset_query();
 					
 					?>
-					 <p>Sorry, no posts matched your criteria.</p>
+					 <div class="post">	<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyeleven' ); ?></p>
+						<?php get_search_form(); ?>
+						
+					</div>
+						
 					 <?php endif; ?>
 					
 						<h3><?php next_posts_link('Older Entries »', 0); ?></h3>

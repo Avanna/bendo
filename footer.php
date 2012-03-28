@@ -15,8 +15,6 @@
 				$loop = new WP_Query( $args );
 
 				while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				
-				<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 					<?php wpo_get_images('tiny-thumb','6','0','large',"$post->ID",'1','attachment-image','div','small-thumb'); ?>
 
